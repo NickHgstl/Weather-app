@@ -1,5 +1,6 @@
 import './style.css';
 let div = document.querySelector('#content');
+div.id = "body-container"
 let userLocation = document.querySelector('#user-location-input');
 let userLocationButton = document.querySelector('#user-location-button');
 
@@ -14,7 +15,7 @@ function userLocationData(day1, day2, day3, day4, day5, day6, day7) {
     this.day7 = day7;
 
 };
-userLocationData.day1 = "help";
+
 
 function day1(temp, condition, rainChance) {
     this.temp = temp;
@@ -69,7 +70,7 @@ const getUserLocationData = function(){
             let weatherResponse = await response.json();
             var i;
             const weatherContainer = document.createElement('div');
-            weatherContainer.id = "weatherContainer";
+            weatherContainer.id = "weather-container";
             div.append(weatherContainer);
             
             userLocationData.day1 = weatherResponse.forecast.forecastday[0].day;
@@ -81,94 +82,141 @@ const getUserLocationData = function(){
             userLocationData.day7 = weatherResponse.forecast.forecastday[6].day;
             
 
+
             day1.temp = userLocationData.day1.maxtemp_c;
             day1.condition = userLocationData.day1.condition.text;
             day1.rainChance = userLocationData.day1.daily_chance_of_rain;
+
+            const day1Container = document.createElement("div");
+            day1Container.className = "day-container";
+            weatherContainer.append(day1Container);
             const day1Temp = document.createElement('div');
             day1Temp.id = "weatherItem"
             day1Temp.innerText = day1.temp;
-            weatherContainer.append(day1Temp);
+            day1Container.append(day1Temp);
             const day1Con = document.createElement('div');
             day1Con.id = "condition-item"
             day1Con.innerText = day1.condition;
-            weatherContainer.append(day1Con);
+            day1Container.append(day1Con);
+            const day1RainChance = document.createElement('div');
+            day1RainChance.id = "rain-item"
+            day1RainChance.innerText = day1.rainChance;
+            day1Container.append(day1.rainChance);
 
+            const day2Container = document.createElement("div");
+            day2Container.className = "day-container";
+            weatherContainer.append(day2Container);
             day2.temp = userLocationData.day2.maxtemp_c;
             day2.condition = userLocationData.day2.condition.text;
             day2.rainChance = userLocationData.day2.daily_chance_of_rain;
             const day2Temp = document.createElement('div');
             day2Temp.id = "weatherItem"
             day2Temp.innerText = day2.temp;
-            weatherContainer.append(day2Temp);
+            day2Container.append(day2Temp);
             const day2Con = document.createElement('div');
             day2Con.id = "condition-item"
             day2Con.innerText = day2.condition;
-            weatherContainer.append(day2Con);
+            day2Container.append(day2Con);
+            const day2RainChance = document.createElement('div');
+            day2RainChance.id = "rain-item"
+            day2RainChance.innerText = day2.rainChance;
+            day2Container.append(day2.rainChance);
 
 
+            const day3Container = document.createElement("div");
+            day3Container.className = "day-container";
+            weatherContainer.append(day3Container);
             day3.temp = userLocationData.day3.maxtemp_c;
             day3.condition = userLocationData.day3.condition.text;
             day3.rainChance = userLocationData.day3.daily_chance_of_rain;
             const day3Temp = document.createElement('div');
             day3Temp.id = "weatherItem"
             day3Temp.innerText = day3.temp;
-            weatherContainer.append(day3Temp);
+            day3Container.append(day3Temp);
             const day3Con = document.createElement('div');
             day3Con.id = "condition-item"
             day3Con.innerText = day3.condition;
-            weatherContainer.append(day3Con);
+            day3Container.append(day3Con);
+            const day3RainChance = document.createElement('div');
+            day3RainChance.id = "rain-item"
+            day3RainChance.innerText = day3.rainChance;
+            day3Container.append(day3.rainChance);
 
-
+            const day4Container = document.createElement("div");
+            day4Container.className = "day-container";
+            weatherContainer.append(day4Container);
             day4.temp = userLocationData.day4.maxtemp_c;
             day4.condition = userLocationData.day4.condition.text;
             day4.rainChance = userLocationData.day4.daily_chance_of_rain;
             const day4Temp = document.createElement('div');
             day4Temp.id = "weatherItem"
             day4Temp.innerText = day4.temp;
-            weatherContainer.append(day4Temp);
+            day4Container.append(day4Temp);
             const day4Con = document.createElement('div');
             day4Con.id = "condition-item"
             day4Con.innerText = day4.condition;
-            weatherContainer.append(day4Con);
+            day4Container.append(day4Con);
+            const day4RainChance = document.createElement('div');
+            day4RainChance.id = "rain-item"
+            day4RainChance.innerText = day4.rainChance;
+            day4Container.append(day4.rainChance);
 
-
+            const day5Container = document.createElement("div");
+            day5Container.className = "day-container";
+            weatherContainer.append(day5Container);
             day5.temp = userLocationData.day5.maxtemp_c;
             day5.condition = userLocationData.day5.condition.text;
             day5.rainChance = userLocationData.day5.daily_chance_of_rain;
             const day5Temp = document.createElement('div');
             day5Temp.id = "weatherItem"
             day5Temp.innerText = day5.temp;
-            weatherContainer.append(day5Temp);
+            day5Container.append(day5Temp);
             const day5Con = document.createElement('div');
             day5Con.id = "condition-item"
             day5Con.innerText = day5.condition;
-            weatherContainer.append(day5Con);
+            day5Container.append(day5Con);
+            const day5RainChance = document.createElement('div');
+            day5RainChance.id = "rain-item"
+            day5RainChance.innerText = day5.rainChance;
+            day5Container.append(day5.rainChance);
 
-
+            const day6Container = document.createElement("div");
+            day6Container.className = "day-container";
+            weatherContainer.append(day6Container);
             day6.temp = userLocationData.day6.maxtemp_c;
             day6.condition = userLocationData.day6.condition.text;
             day6.rainChance = userLocationData.day6.daily_chance_of_rain;
             const day6Temp = document.createElement('div');
             day6Temp.id = "weatherItem"
             day6Temp.innerText = day6.temp;
-            weatherContainer.append(day6Temp);
+            day6Container.append(day6Temp);
             const day6Con = document.createElement('div');
             day6Con.id = "condition-item"
             day6Con.innerText = day6.condition;
-            weatherContainer.append(day6Con);
+            day6Container.append(day6Con);
+            const day6RainChance = document.createElement('div');
+            day6RainChance.id = "rain-item"
+            day6RainChance.innerText = day6.rainChance;
+            day6Container.append(day6.rainChance);
 
-
+            const day7Container = document.createElement("div");
+            day7Container.className = "day-container";
+            weatherContainer.append(day7Container);
             day7.temp = userLocationData.day7.maxtemp_c;
             day7.condition = userLocationData.day7.condition.text;
             day7.rainChance = userLocationData.day7.daily_chance_of_rain;
             const day7Temp = document.createElement('div');
             day7Temp.id = "weatherItem"
             day7Temp.innerText = day7.temp;
-            weatherContainer.append(day7Temp);
+            day7Container.append(day7Temp);
             const day7Con = document.createElement('div');
             day7Con.id = "condition-item"
             day7Con.innerText = day7.condition;
-            weatherContainer.append(day7Con);
+            day7Container.append(day7Con);
+            const day7RainChance = document.createElement('div');
+            day7RainChance.id = "rain-item"
+            day7RainChance.innerText = day7.rainChance;
+            day7Container.append(day7.rainChance);
 
             
         } getWeatherData();
