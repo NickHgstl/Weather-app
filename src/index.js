@@ -5,6 +5,7 @@ let userLocation = document.querySelector('#user-location-input');
 let userLocationButton = document.querySelector('#user-location-button');
 
 
+
 function userLocationData(day1, day2, day3, day4, day5, day6, day7) {
     this.day1 = day1;
     this.day2 = day2;
@@ -214,11 +215,23 @@ const getUserLocationData = function(){
             day7RainChance.className = "rain-item"
             day7RainChance.innerText = day7.rainChance + "%";
             day7Container.append(day7RainChance);
+            console.log(day1.condition)
+
+            if (day1.condition.includes("cloudy")) {
+                document.body.style.backgroundImage = "url('/home/nick/repos/Weather-app/src/images/cloudy.jpg')"
+            }
+            else if (day1.condition.includes("Sunny")){
+                document.body.style.backgroundImage = "url('/home/nick/repos/Weather-app/src/images/sun.webp')"
+            }
+            else if (day1.condition.includes("rain")){
+                document.body.style.backgroundImage = "url('/home/nick/repos/Weather-app/src/images/rain.jpg')"
+            }
+
+
 
             userLocationButton.addEventListener('click', function(e){
                 weatherContainer.innerHTML = "";
             })
-
         } getWeatherData();
     })
 }
